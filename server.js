@@ -21,6 +21,14 @@ app.set("views", path.join(__dirname, "/views"));
 app.use(express.static(path.join(__dirname, "public")));
 
 
+// Faker
+let getUser = () => {
+  return {
+    id: faker.string.uuid(), // Generates a random Id
+  };
+};
+
+
 // Home Route
 app.get("/", (req, res) => {
   res.redirect("/dashboard");
