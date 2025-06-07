@@ -1,7 +1,8 @@
 const express = require("express");
 const path = require("path");
 const methodOverride = require("method-override");
-
+const { v4: uuidv4 } = require("uuid");
+const { faker, el } = require("@faker-js/faker");
 
 const app = express();
 const port = 3000;
