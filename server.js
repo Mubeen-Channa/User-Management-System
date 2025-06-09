@@ -43,6 +43,23 @@ app.get("/dashboard", (req, res) => {
 });
 
 
+// Show all Users
+app.get("/users", (req, res) => {
+  try {
+    let query = "Select * from users";
+    connection.query(query, (err, users) => {
+      if (err) {
+        throw err;
+      } else {
+        res.render("users", { users });
+      }
+    });
+  } catch (error) {
+    res.send(`Error: ${error}`);
+  }
+});
+
+
 // Server
 app.listen(port, () => {
   console.log(`Server is Listening at port: ${port}`);
