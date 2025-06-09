@@ -60,6 +60,27 @@ app.get("/users", (req, res) => {
 });
 
 
+// Edit Route
+app.get("/users/:id/edit", (req, res) => {
+  let u_id = req.params;
+  let id = u_id["id"];
+  let query = `select * from users where id = '${id}'`;
+
+  connection.query(query, (err, result) => {
+    try {
+      if (err) {
+        throw err;
+      } else {
+        let user = result[0];
+        res.render("edit_form", { user });
+      }
+    } catch (err) {
+      res.send("Error: ", err);
+    }
+  });
+});
+
+
 // Server
 app.listen(port, () => {
   console.log(`Server is Listening at port: ${port}`);
