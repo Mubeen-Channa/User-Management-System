@@ -26,6 +26,23 @@ app.get("/", (req, res) => {
 });
 
 
+// Landing Route (Show Total no of Users)
+app.get("/dashboard", (req, res) => {
+  try {
+    connection.query("select count(*) from users", (err, result) => {
+      if (err) {
+        throw err;
+      } else {
+        let count = result[0]["count(*)"];
+        res.render("dashboard", { count });
+      }
+    });
+  } catch (error) {
+    res.send(`Error: ${error}`);
+  }
+});
+
+
 // Server
 app.listen(port, () => {
   console.log(`Server is Listening at port: ${port}`);
