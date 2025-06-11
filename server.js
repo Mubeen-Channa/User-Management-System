@@ -3,6 +3,8 @@ const path = require("path");
 const methodOverride = require("method-override");
 const { v4: uuidv4 } = require("uuid");
 const { faker, el } = require("@faker-js/faker");
+const mysql = require("mysql2");
+
 
 const app = express();
 const port = 3000;
@@ -19,6 +21,15 @@ app.set("views", path.join(__dirname, "/views"));
 
 // Serve static files from the 'public' directory
 app.use(express.static(path.join(__dirname, "public")));
+
+
+// MySql Connection
+const connection = mysql.createConnection({
+  host: "localhost",
+  user: "root",
+  password: "mysql123",
+  database: "info",
+});
 
 
 // Faker
