@@ -134,6 +134,12 @@ app.patch("/users/:id", (req, res) => {
 });
 
 
+// Add new User Form
+app.get("/users/form", (req, res) => {
+  res.render("add_form");
+});
+
+
 // Server
 app.listen(port, () => {
   console.log(`Server is Listening at port: ${port}`);
