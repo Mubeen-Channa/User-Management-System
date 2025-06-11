@@ -101,6 +101,39 @@ app.get("/users/:id/edit", (req, res) => {
 });
 
 
+// Update Route
+app.patch("/users/:id", (req, res) => {
+  let { id } = req.params;
+  let { new_name, entered_password } = req.body;
+
+  let query = `Select * from users where id = '${id}'`;
+  try {
+    connection.query(query, (err, result) => {
+      if (err) {
+        throw err;
+      } else {
+        let db_password = result[0];
+
+        if (db_password.password === entered_password) {
+          let query_2 = `Update users set name = '${new_name}' where id = '${id}';`;
+          connection.query(query_2, (err, result) => {
+            if (err) {
+              throw err;
+            } else {
+              res.redirect("/users");
+            }
+          });
+        } else {
+          res.send("Your Entered Password wrong!");
+        }
+      }
+    });
+  } catch (err) {
+    res.send("Error: ", err);
+  }
+});
+
+
 // Server
 app.listen(port, () => {
   console.log(`Server is Listening at port: ${port}`);
