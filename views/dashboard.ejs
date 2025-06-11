@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="/css/dashboard.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <h1>Welcome to the Dashboard</h1>
+        <div class="dashboard-content">
+            <div>
+            <div class="card">
+                <h3>Add a New User</h3>
+                <form action="/users/form" method="get">
+                    <button type="submit" class="btn-primary">Create Account</button>
+                </form>
+            </div>
+            <br>
+            <div class="card">
+                <h3>Delete a User</h3>
+                <form action="/users/delete" method="get">
+                    <button type="submit" class="btn-primary">Delete User</button>
+                </form>
+            </div>
+        </div>
+        <br><br>
+        <div>
+            <div class="card">
+                <h3>See all User</h3>
+                <form action="/users" method="get">
+                    <button type="submit" class="btn-primary">All Users</button>
+                </form>
+            </div>
+            <br>
+            <div class="card">
+                <h3>Total Users</h3>
+                <p><%= count %></p>
+            </div>
+        </div>
+        </div>
+    </div>
+</body>
+</html>
