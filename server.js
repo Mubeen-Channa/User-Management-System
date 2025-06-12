@@ -160,6 +160,12 @@ app.post("/users/add", (req, res) => {
 });
 
 
+// Add Delete Form
+app.get("/users/delete", (req, res) => {
+  res.render("delete");
+});
+
+
 // Server
 app.listen(port, () => {
   console.log(`Server is Listening at port: ${port}`);
