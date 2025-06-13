@@ -140,6 +140,26 @@ app.get("/users/form", (req, res) => {
 });
 
 
+// Add a new User
+app.post("/users/add", (req, res) => {
+  let { name, email, password } = req.body;
+  let id = getUser();
+  let query = `Insert into users (id, name, email, password) VALUES ('${id.id}', '${name}', '${email}', '${password}')`;
+
+  try {
+    connection.query(query, (err, result) => {
+      if (err) {
+        res.send("Error: " + err);
+      } else {
+        res.redirect("/dashboard");
+      }
+    });
+  } catch (err) {
+    res.send("Error: " + err);
+  }
+});
+
+
 // Server
 app.listen(port, () => {
   console.log(`Server is Listening at port: ${port}`);
