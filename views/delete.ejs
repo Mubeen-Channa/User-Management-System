@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=arrow_back_ios_new" />
+
+    <title>Delete User</title>
+    <link rel="stylesheet" href="/css/delete.css">
+</head>
+<body>
+    <form action="/" method="get">
+        <button class="back-icon">
+            <span class="material-symbols-outlined">
+                arrow_back_ios_new
+                </span>
+        </button>
+    </form>
+    <h1> <center>Delete Account</center></h1>
+
+    <form method="post" action="/users?_method=DELETE" class="form">
+        <label for="username">Enter Username:</label>
+        <input type="text" name="username" id="username" required> <br><br>
+
+        <label for="password">Enter Password:</label>
+        <input type="password" name="password" id="password" required> <br><br>
+
+        <button type="submit" class="delete-btn">Delete</button>
+        <a href="/" class="cancel-btn">Cancel</a>
+    </form>
+</body>
+</html>
