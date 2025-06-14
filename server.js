@@ -166,6 +166,35 @@ app.get("/users/delete", (req, res) => {
 });
 
 
+app.delete("/users", (req, res) => {
+  let { username, password } = req.body;
+
+  let query = `select * from users where name = '${username}'`;
+
+  connection.query(query, (err, result) => {
+      let id   = result[0]["id"];
+      let pass = result[0]["password"];
+
+      if (password != pass) {
+          res.send("Password is Wrong!");
+        } else {
+            let del_query = `Delete from users where name = '${username}'`;
+            try {
+                connection.query(del_query, (err, result) => {
+                    if (err) {
+                        res.send("Error: " + err);
+                    } else {
+                        res.redirect("/dashboard");
+                    }
+                });
+            } catch (err) {
+                res.send("Error: " + err);
+            }
+        }
+    })
+});
+
+
 // Server
 app.listen(port, () => {
   console.log(`Server is Listening at port: ${port}`);
