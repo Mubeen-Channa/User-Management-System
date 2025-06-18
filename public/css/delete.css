@@ -1,0 +1,41 @@
+body {
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+
+.form input {
+    padding: 8px;
+    width: 200px;
+    margin-bottom: 10px;
+}
+
+.form button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.form .delete-btn {
+    background-color: red;
+    color: white;
+}
+
+.form .cancel-btn {
+    background-color: gray;
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+}
+
+.back-icon{
+    position: fixed;
+    top: 17px;
+    left: 17px;
+    border: none;
+    width: 35px;
+    height: 35px;
+    background-color: #f4f4f9;
+}
